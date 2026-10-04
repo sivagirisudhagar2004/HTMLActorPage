@@ -3,5 +3,80 @@
     <div id="hour" class="hand" style="--color:#ff3d58;--height:76px; --width:4px"><i></i></div>
     <div id="minute" class="hand" style="--color:#00bfff;--height:100px; --width:3px"><i></i></div>
     <div id="second" class="hand" style="--color:#ff6347;--height:120px; --width:2px"><i></i></div>
+    <span style="--i:1; --j:0"><i>|</i></span>
+    <span style="--i:2; --j:0"><i>|</i></span>
+    <span style="--i:3; --j:3"><i>3</i></span>
+    <span style="--i:4; --j:0"><i>|</i></span>
+    <span style="--i:5; --j:0"><i>|</i></span>
+    <span style="--i:6; --j:6"><i>6</i></span>
+    <span style="--i:7; --j:0"><i>|</i></span>
+    <span style="--i:8; --j:0"><i>|</i></span>
+    <span style="--i:9; --j:9"><i>9</i></span>
+    <span style="--i:10; --j:0"><i>|</i></span>
+    <span style="--i:11; --j:0"><i>|</i></span>
+    <span style="--i:12; --j:12"><i>12</i></span>
   </div>
 </div>
+
+<style>
+  #clock-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #clock-face {
+    width: 300px;
+    height: 300px;
+   border-radius: 50%;
+   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   background:linear-gradient(170deg,rgba(49,57,73,0.8)20%,rgba(49,57,73,0.5)20%,rgba(49,57,73,0.5)35%,rgba(41,48,61,0.6)35%,rgba(41,48,61,0.6)35%,rgba(41,48,61,0.8)45%,rgba(41,48,61,0.8)45%,rgba(41,48,61,0.5)55%,rgba(41,48,61,0.5)55%,rgba(41,48,61,0.8)65%,rgba(41,48,61,0.8)65%,rgba(41,48,61,0.5)75%,rgba(41,48,61,0.5)75%),linear-gradient(45deg,rgba(20,24,31,0.8)0%,rgba(41,48,61,0.8)50%,rgba(41,48,61,0.8)50%,rgba(133,147,172,0.8)100%) #313949;
+
+  }
+
+   #clock span {
+     position: absolute;
+     inset: 12px;
+     text-align: center;
+    transform: rotate(calc(var(--i) * 30deg));
+   }
+
+   #clock span i {
+     display: block;
+     display: inline-block;
+     font-size: 20px;
+     font-style: normal;
+     transform: rotate(calc(var(--i) * -30deg));
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+     color: #333;
+   }
+   #clock::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0.6;
+   }
+   #clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+   }
